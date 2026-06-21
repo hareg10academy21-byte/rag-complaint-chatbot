@@ -2,3 +2,9 @@ pandas
 numpy
 matplotlib
 pytest
+sentence-transformers
+langchain
+langchain-text-splitters
+chromadb
+faiss-cpu
+torch
