@@ -3,17 +3,12 @@ from sentence_transformers import SentenceTransformer
 import faiss
 import pandas as pd
 import numpy as np
+import os
 
 # -----------------------------
 # Load Model and Vector Store
 # -----------------------------
-import os
 
-print("Current directory:")
-print(os.getcwd())
-
-print("FAISS exists?")
-print(os.path.exists("vector_store/faiss_index.bin")) 
 @st.cache_resource
 def load_model():
     return SentenceTransformer(
@@ -22,10 +17,19 @@ def load_model():
 
 model = load_model()
 
+# Debug checks
+print("Current directory:")
+print(os.getcwd())
+
+print("FAISS exists?")
+print(os.path.exists("vector_store/faiss_index.bin"))
+
+# Load FAISS index
 index = faiss.read_index(
     "vector_store/faiss_index.bin"
 )
 
+# Load chunks
 chunks = pd.read_csv(
     "vector_store/chunks.csv"
 )
@@ -44,13 +48,19 @@ def retrieve(query, k=3):
     )
 
     results = []
+    seen = set()
 
     for idx in indices[0]:
 
-        results.append({
-            "text": chunks.iloc[idx]["chunk_text"],
-            "metadata": chunks.iloc[idx]["metadata"]
-        })
+        text = chunks.iloc[idx]["chunk_text"]
+
+        if text not in seen:
+
+            seen.add(text)
+
+            results.append(
+                chunks.iloc[idx]
+            )
 
     return results
 
@@ -71,32 +81,45 @@ with col1:
     if st.button("Ask"):
 
         if question.strip() == "":
-            st.warning("Please enter a question.")
+
+            st.warning(
+                "Please enter a question."
+            )
+
         else:
 
-            retrieved_chunks = retrieve(question)
+            retrieved_chunks = retrieve(
+                question
+            )
 
-            st.subheader("Retrieved Complaints")
+            st.subheader(
+                "Relevant Complaint Evidence"
+            )
 
-            for i, item in enumerate(retrieved_chunks):
+            for i, item in enumerate(
+                retrieved_chunks
+            ):
 
                 st.write(
                     f"### Result {i+1}"
                 )
 
                 st.write(
-                    item["text"]
+                    item["chunk_text"]
                 )
 
-            st.subheader("Sources")
+            st.subheader(
+                "Source Information"
+            )
 
             for item in retrieved_chunks:
 
-                st.write(
-                    item["metadata"]
-                )
+               st.write(item["metadata"])
+
+               st.write("---")
 
 with col2:
 
     if st.button("Clear"):
+
         st.rerun()
