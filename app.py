@@ -4,7 +4,10 @@ import faiss
 import pandas as pd
 import numpy as np
 import os
+from src.constants import APP_TITLE, DEFAULT_TOP_K
+from src.config import PathConfig
 
+config = PathConfig()
 # -----------------------------
 # Load Model and Vector Store
 # -----------------------------
@@ -26,19 +29,21 @@ print(os.path.exists("vector_store/faiss_index.bin"))
 
 # Load FAISS index
 index = faiss.read_index(
-    "vector_store/faiss_index.bin"
+    config.faiss_index
 )
 
 # Load chunks
 chunks = pd.read_csv(
-    "vector_store/chunks.csv"
+    config.chunks_file
 )
-
 # -----------------------------
 # Retrieval Function
 # -----------------------------
 
-def retrieve(query, k=3):
+def retrieve(
+    query: str,
+    k: int = DEFAULT_TOP_K,
+):
 
     query_vector = model.encode([query])
 
@@ -68,7 +73,7 @@ def retrieve(query, k=3):
 # Streamlit UI
 # -----------------------------
 
-st.title("💳 Financial Complaint Chatbot")
+st.title(APP_TITLE)
 
 question = st.text_input(
     "Ask a question about complaints"

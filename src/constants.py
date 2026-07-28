@@ -1,0 +1,7 @@
+APP_TITLE = "💳 Financial Complaint Chatbot"
+
+DEFAULT_TOP_K = 5
+
+DEFAULT_STREAM_DELAY = 0.03
+
+MAX_NEW_TOKENS = 256

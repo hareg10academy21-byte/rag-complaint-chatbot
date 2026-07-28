@@ -1,5 +1,8 @@
-# 💬 CrediTrust Intelligent Complaint Analysis (RAG System)
+# 💳 Financial Complaint RAG Chatbot
 
+![Python CI](https://github.com/hareg10academy21-byte/rag-complaint-chatbot/actions/workflows/unittests.yml/badge.svg)
+
+A Retrieval-Augmented Generation (RAG) chatbot that helps analyze and answer customer financial complaints using semantic search and Large Language Models.
 ## 🚀 Overview
 
 This project is a Retrieval-Augmented Generation (RAG) system designed for CrediTrust Financial to analyze and extract insights from customer complaints across financial products.

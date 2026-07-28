@@ -2,7 +2,7 @@ import faiss
 import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer
-
+from typing import List, Dict
 class Retriever:
     def __init__(self, index_path, metadata_path):
         self.index = faiss.read_index(index_path)
@@ -10,10 +10,14 @@ class Retriever:
 
         self.model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
-    def embed_query(self, query):
+    def embed_query(self, query: str):
         return self.model.encode([query]).astype("float32")
 
-    def search(self, query, k=5):
+    def search(
+    self,
+    query: str,
+    k: int = 5,
+) -> List[Dict]:
         query_vec = self.embed_query(query)
 
         distances, indices = self.index.search(query_vec, k)
