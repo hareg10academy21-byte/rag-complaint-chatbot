@@ -46,6 +46,6 @@ jobs:
       run: |
         python -m py_compile src/*.py
 
-    - name: Run tests
+    - name: Run Unit Tests
       run: |
-        pytest tests/
+       pytest tests -v
