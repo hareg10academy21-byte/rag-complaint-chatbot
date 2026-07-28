@@ -49,3 +49,15 @@ CHUNK --> PROMPT[Prompt Engineering]
 PROMPT --> LLM[FLAN-T5 Model]
 LLM --> ANSWER[Final Answer]
 CHUNK --> SOURCE[Source Display]
+
+## Week 12 Portfolio Improvement
+
+This repository is being enhanced as part of the Week 12 Capstone Project.
+
+### Planning Documents
+
+- docs/gap_analysis.md
+- docs/improvement_plan.md
+- docs/roadmap.md
+
+These documents describe the current state of the project, planned engineering improvements, and the implementation roadmap.
