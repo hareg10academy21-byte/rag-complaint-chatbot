@@ -491,7 +491,7 @@ Software Engineering Student
 
 10 Academy AI Mastery Program
 
-📧 Email: serkenatye2129@gmail.com
+📧 Email: hareg10academy21@gmail.com
 
 🔗 LinkedIn:
 https://www.linkedin.com/in/haregeweyn-ataklt-reda-79b412394/
