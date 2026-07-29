@@ -42,7 +42,34 @@ Traditional manual searching:
 The Finance Complaint RAG Chatbot provides a faster and more intelligent approach using AI-powered search.
 
 ---
+---
 
+# 💡 Solution Overview
+
+This project provides an AI-powered Retrieval-Augmented Generation (RAG) system that helps financial analysts search and analyze historical customer complaints more efficiently.
+
+The solution works through the following steps:
+
+1. Customer complaints are cleaned and preprocessed.
+2. Complaint texts are converted into vector embeddings using Sentence Transformers.
+3. Embeddings are indexed using FAISS for efficient semantic search.
+4. The system retrieves the most relevant historical complaints based on the user's query.
+5. Retrieved evidence is presented through an interactive Streamlit dashboard to support faster and more informed decision-making.
+
+This approach reduces manual effort, improves retrieval accuracy, and demonstrates production-oriented software engineering practices.
+---
+
+# 📈 Key Results
+
+| Metric | Result |
+|---------|--------|
+| Automated Tests | ✅ 6 PyTest tests passing |
+| Project Architecture | ✅ Fully modular `src/` structure |
+| Continuous Integration | ✅ GitHub Actions CI configured |
+| Interactive Dashboard | ✅ Streamlit dashboard implemented |
+| Search Performance | ✅ Retrieves relevant complaints within seconds |
+| Documentation | ✅ Comprehensive README and project report completed |
+| Business Impact | ✅ Faster complaint investigation and reduced manual search effort |
 # 🚀 Original Project Achievements
 
 The original project successfully implemented:
@@ -222,6 +249,16 @@ AI Response
 ```
 
 ---
+# 🎥 Demo
+
+The Streamlit dashboard allows users to:
+
+- Search financial complaints using semantic search.
+- Retrieve similar historical complaint records.
+- Explore business impact and engineering improvements.
+- Understand the Retrieval-Augmented Generation (RAG) workflow.
+
+> **Dashboard Preview:** See the screenshots above for examples of the user interface.
 
 # 🛠 Technology Stack
 
@@ -285,6 +322,54 @@ rag-complaint-chatbot/
 ```
 
 ---
+---
+---
+
+# 🔬 Technical Details
+
+## Data
+
+- Financial complaint dataset
+- Complaint preprocessing and text cleaning
+- Complaint chunking for efficient retrieval
+
+## Embedding Model
+
+- Sentence Transformer
+- Model: `sentence-transformers/all-MiniLM-L6-v2`
+
+## Vector Database
+
+- FAISS Index
+- Semantic similarity search
+
+## Retrieval Pipeline
+
+- Retrieval-Augmented Generation (RAG)
+- Top-5 complaint retrieval
+
+## Evaluation
+
+Project quality was validated using:
+
+- 6 automated PyTest tests
+- GitHub Actions Continuous Integration
+- Manual verification through the Streamlit dashboard
+
+# 🚀 Quick Start
+
+```bash
+git clone https://github.com/hareg10academy21-byte/rag-complaint-chatbot.git
+
+cd rag-complaint-chatbot
+
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install -r requirements.txt
+
+streamlit run app.py
 
 # ⚙ Installation Guide
 
@@ -327,7 +412,11 @@ pip install -r requirements.txt
 Start Streamlit:
 
 ```bash
+pip install -r requirements.txt
+
 streamlit run app.py
+
+pytest tests -v
 ```
 
 The application will open in your browser.
@@ -360,6 +449,7 @@ This system provides:
 ✅ Evidence-based decision making  
 ✅ Better customer experience  
 
+By enabling semantic retrieval of historical financial complaints, the system helps analysts reduce manual search effort, improve investigation consistency, and support faster evidence-based decision-making.
 ---
 
 ## 📊 Success Metrics
@@ -397,21 +487,18 @@ The following table summarizes the implementation status of the planned improvem
 
 **Haregeweyn Ataklt**
 
-Software Engineering Student  
+Software Engineering Student
+
 10 Academy AI Mastery Program
 
----
-# 📈 Current Project Status
+📧 Email: serkenatye2129@gmail.com
 
-| Component | Status |
-|---|---|
-| Modular Architecture | ✅ Completed |
-| Type Hints and Documentation | ✅ Completed |
-| Unit Testing | ✅ 6 Tests Passing |
-| GitHub Actions CI/CD | ✅ Completed |
-| Streamlit Dashboard | ✅ Completed |
-| Semantic Search Retrieval | ✅ Completed |
-| Production Documentation | ✅ Completed | 
+🔗 LinkedIn:
+https://www.linkedin.com/in/haregeweyn-ataklt-reda-79b412394/
+
+💻 GitHub:
+https://github.com/hareg10academy21-byte
+
 # ⚠️ Challenges and Solutions
 
 During the project, several technical and engineering challenges were encountered. The following table summarizes each challenge and the solution that was implemented.
