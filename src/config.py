@@ -4,7 +4,7 @@ from dataclasses import dataclass
 @dataclass
 class ModelConfig:
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
-    llm_model: str = "google/flan-t5-base"
+    llm_model: str = "google/flan-t5-small"
     max_new_tokens: int = 256
     top_k_results: int = 5
     stream_delay: float = 0.03

@@ -1,45 +1,6 @@
-# from transformers import pipeline
-# import time
-
-# class LLMGenerator:
-#     def __init__(self):
-#         self.pipe = pipeline(
-#             "text-generation",
-#             model="google/flan-t5-base",
-#             max_new_tokens=256
-#         )
-
-#     def generate(self, prompt):
-#         result = self.pipe(
-#             prompt,
-#             max_new_tokens=256,
-#             do_sample=False
-#         )[0]["generated_text"]
-
-#         # remove prompt echo if model repeats it
-#         if "Answer" in result:
-#             result = result.split("Answer")[-1]
-
-#         return result.strip()
-
-#     # ----------------------------
-#     # STREAMING SIMULATION (ChatGPT-like effect)
-#     # ----------------------------
-#     def stream_generate(self, prompt, delay=0.03):
-#         result = self.pipe(
-#             prompt,
-#             max_new_tokens=256,
-#             do_sample=False
-#         )[0]["generated_text"]
-
-#         output = ""
-
-#         for char in result:
-#             output += char
-#             time.sleep(delay)
-#             yield output
-
 import time
+from functools import lru_cache
+
 from transformers import pipeline
 
 from src.config import ModelConfig
@@ -48,19 +9,35 @@ from src.config import ModelConfig
 config = ModelConfig()
 
 
+@lru_cache(maxsize=1)
+def load_model():
+    """
+    Load and cache the language model.
+
+    The model is loaded only once to improve application performance.
+    """
+
+    return pipeline(
+        "text-generation",
+        model=config.llm_model,
+    )
+
+
 class LLMGenerator:
     """
     Handles response generation using the configured language model.
     """
 
     def __init__(self):
-        self.pipe = pipeline(
-            "text-generation",
-            model=config.llm_model,
-            max_new_tokens=config.max_new_tokens,
-        )
 
-    def generate(self, prompt: str) -> str:
+        # Load cached model instead of downloading/loading repeatedly
+        self.pipe = load_model()
+
+
+    def generate(
+        self,
+        prompt: str,
+    ) -> str:
         """
         Generate a complete response.
         """
@@ -71,10 +48,8 @@ class LLMGenerator:
             do_sample=False,
         )[0]["generated_text"]
 
-        if "Answer" in result:
-            result = result.split("Answer")[-1]
-
         return result.strip()
+
 
     def stream_generate(
         self,
@@ -82,7 +57,7 @@ class LLMGenerator:
         delay: float = config.stream_delay,
     ):
         """
-        Stream the generated response one character at a time.
+        Stream generated response character by character.
         """
 
         result = self.pipe(
@@ -91,9 +66,13 @@ class LLMGenerator:
             do_sample=False,
         )[0]["generated_text"]
 
+
         output = ""
 
         for char in result:
+
             output += char
+
             time.sleep(delay)
+
             yield output

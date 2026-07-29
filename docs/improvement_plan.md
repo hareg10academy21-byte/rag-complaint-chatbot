@@ -71,3 +71,59 @@ The improvement process will be considered successful if the following objective
 - ✅ Interactive Streamlit dashboard
 - ✅ Professional project documentation
 - ✅ Improved usability and portfolio quality
+---
+
+# Project Selection Justification
+
+I selected the Finance Complaint RAG Chatbot as my capstone project because it solves a
+real-world problem in the financial industry using Artificial Intelligence and Natural
+Language Processing.
+
+Financial institutions receive thousands of customer complaints, making manual searching
+and analysis slow and inefficient. This project improves complaint investigation by using
+Retrieval-Augmented Generation (RAG), semantic search, FAISS vector retrieval, and AI-based
+response generation.
+
+This project was selected because it demonstrates both technical and business skills:
+machine learning, NLP, software engineering practices, testing, documentation, and
+development of an interactive AI application.
+
+The project has strong portfolio value because it can demonstrate how AI solutions can
+improve operational efficiency and customer experience in the finance sector.
+
+---
+
+# Improvement Prioritization Reasoning
+
+The selected improvements were prioritized based on three main factors:
+
+1. **Impact on project quality**
+   
+   Improvements such as modular architecture, testing, and CI/CD directly improve
+   reliability and maintainability.
+
+2. **Portfolio value**
+   
+   Interactive dashboards, documentation, and professional software practices make the
+   project easier for recruiters and technical reviewers to evaluate.
+
+3. **Feasibility within the available timeframe**
+   
+   The selected improvements can realistically be completed within the capstone timeline
+   while creating significant improvements over the original project.
+
+---
+
+## Success Metrics
+
+The success of the project improvements will be measured using the following criteria:
+
+| Metric | Target Outcome |
+|---|---|
+| **Code Organization** | Maintain a clean and modular `src/` based architecture with separated components for dashboard, retrieval, RAG pipeline, configuration, and utilities. |
+| **Test Coverage** | Achieve at least **5 automated tests** covering core functionality such as preprocessing, retrieval, embeddings, utilities, and RAG pipeline components. |
+| **Application Reliability** | Successfully run automated checks through **GitHub Actions CI/CD** whenever new code is pushed to the repository. |
+| **User Interface** | Provide a fully functional **Streamlit dashboard** that allows users to submit complaints, view retrieved results, and interact with AI responses. |
+| **Documentation Quality** | Provide complete project documentation including installation steps, requirements, usage instructions, architecture explanation, and project overview. |
+| **Search Performance** | Retrieve relevant historical financial complaints within seconds using semantic search with FAISS and Sentence Transformer embeddings. |
+| **User Experience** | Present retrieved complaint evidence and AI-generated responses clearly through an interactive and easy-to-use dashboard interface. |

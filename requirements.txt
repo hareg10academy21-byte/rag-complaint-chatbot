@@ -8,3 +8,6 @@ langchain-text-splitters
 chromadb
 faiss-cpu
 torch
+transformers
+accelerate
+sentence-transformers
