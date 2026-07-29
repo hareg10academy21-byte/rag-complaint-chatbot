@@ -376,6 +376,22 @@ The success of the project improvements will be evaluated using the following me
 | 🔍 **Search Performance** | Retrieve relevant historical complaints within seconds using semantic search with FAISS and Sentence Transformer embeddings. |
 | 😊 **User Experience** | Deliver a clear and interactive interface that presents complaint evidence and AI-generated insights effectively. |
 ---
+# 📈 Current Project Status
+
+The following table summarizes the implementation status of the planned improvements. It demonstrates the progress made during the project and provides evidence of completed engineering tasks.
+
+| Planned Improvement | Status | Evidence |
+|----------------------|:------:|----------|
+| Refactor the project into a modular architecture | ✅ Completed | Source code reorganized into a clean `src/` structure with separated modules (`dashboard.py`, `retriever.py`, `rag_pipeline.py`, `config.py`, `utils.py`, etc.). |
+| Add Python type hints, dataclasses, constants, and docstrings | ✅ Completed | Added type hints to function signatures, configuration dataclasses, reusable constants, and comprehensive function documentation. |
+| Improve code maintainability and readability | ✅ Completed | Business logic separated from the user interface, reusable utility functions introduced, and project organization improved. |
+| Implement automated testing with PyTest | ✅ Completed | Six automated unit tests successfully passed, validating the application's core functionality. |
+| Configure GitHub Actions CI/CD | ✅ Completed | GitHub Actions workflow automatically installs dependencies and executes tests for continuous integration. |
+| Build an interactive Streamlit dashboard | ✅ Completed | Dashboard developed with complaint search, retrieved evidence visualization, business impact section, engineering overview, and downloadable results. |
+| Improve project documentation | ✅ Completed | README, improvement plan, roadmap, installation guide, architecture description, screenshots, and usage instructions completed. |
+| Add model explainability (SHAP/LIME) | ⏳ Not Implemented | Not applicable for this project because it is a Retrieval-Augmented Generation (RAG) system rather than a predictive machine learning model. |
+
+---
 
 # 👩‍💻 Author
 
@@ -396,7 +412,45 @@ Software Engineering Student
 | Streamlit Dashboard | ✅ Completed |
 | Semantic Search Retrieval | ✅ Completed |
 | Production Documentation | ✅ Completed | 
+# ⚠️ Challenges and Solutions
 
+During the project, several technical and engineering challenges were encountered. The following table summarizes each challenge and the solution that was implemented.
+
+| Challenge | Impact | Solution Implemented | Final Status |
+|-----------|--------|----------------------|:------------:|
+| Original project structure contained tightly coupled components | Difficult to maintain and extend | Refactored the application into a modular `src/` architecture with reusable components. | ✅ Resolved |
+| Limited documentation | Reduced project reproducibility | Added detailed README, installation guide, architecture description, and project documentation. | ✅ Resolved |
+| No automated testing | Difficult to verify software correctness | Implemented six automated unit tests using PyTest. | ✅ Resolved |
+| No Continuous Integration pipeline | Manual verification required after code changes | Configured GitHub Actions to automatically validate the project on every push. | ✅ Resolved |
+| Limited user interaction | Difficult for non-technical users to explore results | Developed an interactive Streamlit dashboard with visual components and complaint search functionality. | ✅ Resolved |
+| Large Language Model initialization required significant download time | Increased application startup time during first execution | Retrieval functionality remains fully operational. Future work includes using lighter or locally cached language models to improve startup performance. | 🔄 Partially Improved |
+
+---
+# 📋 Improvement Plan Progress
+
+The following table compares the original improvement plan with the final implementation. This provides a clear overview of project execution and demonstrates how the planned engineering objectives were achieved.
+
+| Planned Task | Priority | Estimated Time | Final Status | Remarks |
+|--------------|:-------:|:--------------:|:------------:|---------|
+| Refactor project into a modular architecture | 🔴 High | 5 Hours | ✅ Completed | Application reorganized into reusable modules with improved maintainability. |
+| Add type hints, constants, dataclasses, and docstrings | 🔴 High | 3 Hours | ✅ Completed | Improved code readability, consistency, and software engineering quality. |
+| Develop automated unit tests using PyTest | 🔴 High | 4 Hours | ✅ Completed | Six automated tests implemented and successfully passed. |
+| Configure GitHub Actions CI/CD | 🔴 High | 2 Hours | ✅ Completed | Automated testing pipeline configured for continuous integration. |
+| Build an interactive Streamlit dashboard | 🔴 High | 6 Hours | ✅ Completed | Professional dashboard implemented with business-focused visualizations and complaint retrieval features. |
+| Add model explainability (SHAP/LIME) | 🟡 Medium | 4 Hours | ⏳ Not Implemented | This project uses Retrieval-Augmented Generation (RAG) rather than predictive machine learning. Therefore, SHAP explainability was not technically appropriate for the current architecture. |
+# 💡 Project Reflection
+
+The project successfully achieved all high-priority engineering objectives defined in the improvement plan. The original prototype was transformed into a more reliable, maintainable, and professional application by applying software engineering best practices.
+
+The completed improvements include modular code refactoring, enhanced documentation, automated testing, continuous integration using GitHub Actions, and the development of an interactive Streamlit dashboard. These enhancements significantly improved the project's usability, maintainability, reproducibility, and overall portfolio quality.
+
+The only planned improvement that was not implemented was model explainability using SHAP. After evaluating the project architecture, it was determined that SHAP is designed for predictive machine learning models, whereas this application is based on Retrieval-Augmented Generation (RAG). For this reason, development effort was redirected toward engineering improvements that provide greater practical value for this type of AI application.
+
+Overall, the project now demonstrates production-oriented software engineering practices and better reflects the expectations of finance-sector employers for reliable and maintainable AI systems.
+
+---
+
+---
 # 🔮 Future Improvements
 
 Possible future enhancements:
